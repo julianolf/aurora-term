@@ -14,5 +14,7 @@ jobs:
         run: poetry install
       - name: Check Python style
         run: poetry run flake8 aurora_term/ tests/
+      - name: Check Python code formatting
+        run: poetry run black -l79 -S --check aurora_term/ tests/
       - name: Run tests
         run: poetry run pytest
