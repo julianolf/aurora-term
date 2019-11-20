@@ -17,4 +17,4 @@ jobs:
       - name: Check Python code formatting
         run: poetry run black -l79 -S --check aurora_term/ tests/
       - name: Run tests
-        run: poetry run pytest
+        run: poetry run pytest -x -p no:warnings --cov=aurora_term/ --cov-report term-missing --cov-fail-under 100
