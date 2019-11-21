@@ -22,4 +22,4 @@ from aurora_term import __version__, config, terminal
 args = docopt.docopt(__doc__, version=__version__)
 prms = {k.lower().replace('--', ''): v for k, v in args.items() if v}
 conf = config.Config(**prms)
-terminal.Terminal().cmdloop()
+terminal.Terminal(conf).cmdloop()
