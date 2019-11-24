@@ -17,6 +17,14 @@ class Terminal(cmd.Cmd):
             database=self.config.database,
         )
 
+    def default(self, line):
+        try:
+            result = self.aurora.execute(line)
+        except Exception as error:
+            print(str(error))
+        else:
+            print(result)
+
     def do_quit(self, arg):
         """Quit aurora-term."""
         return True
