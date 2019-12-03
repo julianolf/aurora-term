@@ -50,7 +50,8 @@ def test_terminal_default_handles_exceptions(m_aurora, m_stdout):
 @pytest.mark.parametrize(
     'data,expected', [([{'foo': 'bar'}], '\nfoo: bar\n'), ([], '')]
 )
-def test_terminal_format_default(data, expected):
+@mock.patch('aurora_term.terminal.aurora')
+def test_terminal_format_default(m_aurora, data, expected):
     term = terminal.Terminal()
     got = term._format_default(data)
 
@@ -64,7 +65,8 @@ def test_terminal_format_default(data, expected):
         ([], ''),
     ],
 )
-def test_terminal_format_table(data, expected):
+@mock.patch('aurora_term.terminal.aurora')
+def test_terminal_format_table(m_aurora, data, expected):
     term = terminal.Terminal()
     got = term._format_table(data)
 
@@ -75,7 +77,8 @@ def test_terminal_format_table(data, expected):
     'data,expected',
     [([{'foo': 'bar'}], '[\n  {\n    "foo": "bar"\n  }\n]'), ([], '[]')],
 )
-def test_terminal_format_json(data, expected):
+@mock.patch('aurora_term.terminal.aurora')
+def test_terminal_format_json(m_aurora, data, expected):
     term = terminal.Terminal()
     got = term._format_json(data)
 
@@ -102,7 +105,8 @@ def test_terminal_changes_format_output(m_aurora, m_stdout, fmt, expected):
 
 
 @mock.patch('sys.stdout', new_callable=StringIO)
-def test_terminal_handles_invalid_format_input(m_stdout):
+@mock.patch('aurora_term.terminal.aurora')
+def test_terminal_handles_invalid_format_input(m_aurora, m_stdout):
     expected = '"cool" is not a valid format.\n'
     term = terminal.Terminal()
     term.do_format('cool')
