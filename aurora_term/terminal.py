@@ -50,7 +50,7 @@ class Terminal(cmd.Cmd):
         for record in data:
             row = []
             for key, value in record.items():
-                sizes[key] = max(sizes[key], len(value))
+                sizes[key] = max(sizes[key], len(str(value)))
                 row.append(value)
             rows.append(row)
 
