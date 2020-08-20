@@ -1,8 +1,22 @@
 [tool.poetry]
 name = "aurora-term"
 version = "0.1.0"
-description = "Amazon Aurora Serverless interactive terminal"
+description = "AWS Aurora Serverless interactive terminal"
 authors = ["Juliano Fernandes <julianofernandes@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/julianolf/aurora-term"
+keywords = ["aws", "aurora", "data-api", "cli"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Topic :: Database",
+  "Topic :: Utilities"
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -10,14 +24,17 @@ boto3 = "^1.10"
 docopt = "^0.6.2"
 
 [tool.poetry.dev-dependencies]
-black = {version = "^18.3-alpha.0", allow-prereleases = true}
-flake8 = "^3.7"
-ipdb = "^0.12.2"
-ipython = "^7.9"
-isort = "^4.3"
-pre-commit = "^1.20"
-pytest = "^3.0"
-pytest-cov = "^2.8"
+black = {version = "*", allow-prereleases = true}
+flake8 = "*"
+ipdb = "*"
+ipython = "*"
+isort = "*"
+pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[tool.poetry.scripts]
+aurora-term = "aurora_term.__main__:main"
 
 [tool.black]
 line-length = 79

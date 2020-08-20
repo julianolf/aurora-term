@@ -1,7 +1,7 @@
 aurora-term
 ===========
 
-Amazon Aurora Serverless interactive terminal.
+AWS Aurora Serverless interactive terminal.
 
 Introduction
 ------------
